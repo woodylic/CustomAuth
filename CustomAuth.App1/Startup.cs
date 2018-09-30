@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CustomAuth.App1.Middlewares;
+using CustomAuth.Client;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,14 +29,19 @@ namespace CustomAuth.App1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Inject configurations
+            services.AddOptions();
+            
+            // Inject CustomAuthClient
+            services.Configure<CustomAuthClientOptions>(Configuration.GetSection("CustomAuthClient"));
+            services.AddHttpClient<ICustomAuthClient, CustomAuthClient>();
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = CustomAuthDefaults.AuthenticationScheme;
                 options.DefaultChallengeScheme = CustomAuthDefaults.AuthenticationScheme;
-            }).AddCustomAuth(options =>
-            {
-                options.TokenEndpoint = "http://localhost:5005/api/token/";
-            });
+            })
+            .AddCustomAuth();
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

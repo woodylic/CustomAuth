@@ -1,18 +1,24 @@
 using System;
 using System.Net.Http;
+using CustomAuth.Client;
 using Microsoft.Extensions.Options;
 
 namespace CustomAuth.App1.Middlewares
 {
     public class CustomAuthPostConfigureOptions : IPostConfigureOptions<CustomAuthOptions>
     {
+        private readonly ICustomAuthClient _customAuthClient;
+        
+        public CustomAuthPostConfigureOptions(ICustomAuthClient customAuthClient)
+        {
+            _customAuthClient = customAuthClient;
+        }
+        
         public void PostConfigure(string name, CustomAuthOptions options)
-        {               
-            if (options.Backchannel == null)
+        {
+            if (options.CustomAuthClient == null)
             {
-                options.Backchannel = new HttpClient();              
-                options.Backchannel.Timeout = options.BackchannelTimeout;
-                options.Backchannel.MaxResponseContentBufferSize = 1024 * 1024 * 1; // 1 MB
+                options.CustomAuthClient = _customAuthClient;
             }
         }
     }

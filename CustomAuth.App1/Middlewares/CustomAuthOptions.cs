@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using CustomAuth.Client;
 using Microsoft.AspNetCore.Authentication;
 
 namespace CustomAuth.App1.Middlewares
@@ -11,12 +12,14 @@ namespace CustomAuth.App1.Middlewares
             ClaimsIssuer = "CustomAuth.AuthService";
         }
 
-        public string TokenEndpoint { get; set; }
-
         public string TokenHeaderKey { get; set; } = "X-CustomAuth-Token";
-
-        public HttpClient Backchannel { get; set; }
-
-        public TimeSpan BackchannelTimeout { get; set; } = TimeSpan.FromSeconds(60);
+        
+        public ICustomAuthClient CustomAuthClient { get; set; }
+        
+//        public string TokenEndpoint { get; set; }
+//
+//        public HttpClient Backchannel { get; set; }
+//
+//        public TimeSpan BackchannelTimeout { get; set; } = TimeSpan.FromSeconds(60);
     }
 }

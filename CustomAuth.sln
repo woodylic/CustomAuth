@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAuth.App1", "CustomAu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAuth2", "CustomAuth2\CustomAuth2.csproj", "{4BAB2794-D55C-407B-9EE3-4420CA0DC655}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomAuth.Client", "CustomAuth.Client\CustomAuth.Client.csproj", "{B1E31367-3813-43F9-B7DE-BFFF1CF6B640}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4BAB2794-D55C-407B-9EE3-4420CA0DC655}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BAB2794-D55C-407B-9EE3-4420CA0DC655}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BAB2794-D55C-407B-9EE3-4420CA0DC655}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E31367-3813-43F9-B7DE-BFFF1CF6B640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E31367-3813-43F9-B7DE-BFFF1CF6B640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E31367-3813-43F9-B7DE-BFFF1CF6B640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E31367-3813-43F9-B7DE-BFFF1CF6B640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

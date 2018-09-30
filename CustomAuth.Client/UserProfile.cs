@@ -1,4 +1,4 @@
-namespace CustomAuth.App1.Models
+namespace CustomAuth.Client
 {
     public class UserProfile
     {
